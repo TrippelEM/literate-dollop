@@ -2,3 +2,4 @@
 .idea/
 movies/
 __pycache__
+.DS_Store
