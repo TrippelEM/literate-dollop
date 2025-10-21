@@ -1,4 +1,5 @@
 from pymongo import MongoClient, version
+from pymongo import InsertOne
 
 
 class DbConnector:
@@ -18,6 +19,7 @@ class DbConnector:
                  USER="slaver",
                  PASSWORD="root"):
         uri = "mongodb://%s:%s@%s/%s" % (USER, PASSWORD, HOST, DATABASE)
+        print(uri)
         # Connect to the databases
         try:
             self.client = MongoClient(uri)
@@ -35,3 +37,37 @@ class DbConnector:
         self.client.close()
         print("\n-----------------------------------------------")
         print("Connection to %s-db is closed" % self.db.name)
+
+    def collection(self, name: str):
+        return self.db[name]
+
+    def bulk_insert(self, collection_name: str, docs, batch_size: int = 50_000):
+        """
+        Inserts docs in chunks. Accepts list or any iterable of dicts.
+        Returns total inserted count.
+        """
+        coll = self.collection(collection_name)
+        buf, n = [], 0
+        for d in docs:
+            buf.append(d)
+            if len(buf) >= batch_size:
+                coll.insert_many(buf, ordered=False)
+                n += len(buf)
+                buf.clear()
+        if buf:
+            coll.insert_many(buf, ordered=False)
+            n += len(buf)
+        return n
+    
+    def ensure_indexes(self, spec: dict):
+        """
+        spec example:
+        {
+          "movies": [ [("title", 1)], [("genres", 1)], [("cast.person_id", 1)] ],
+          "people": [ [("name", 1)], [("cast.tmdb_id", 1)], [("crew.tmdb_id",1)] ],
+        }
+        """
+        for coll_name, idx_list in spec.items():
+            coll = self.collection(coll_name)
+            for keys in idx_list:
+                coll.create_index(keys)

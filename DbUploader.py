@@ -4,7 +4,7 @@ from typing import Iterable, Dict, Any
 from pymongo import ASCENDING
 
 
-class ExampleProgram:
+class DbUploader:
 
     def __init__(self, **db_kwargs):
         self.connection = DbConnector(**db_kwargs)
