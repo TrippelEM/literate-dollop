@@ -1,6 +1,8 @@
 import os
 from pprint import pprint
 from DbConnector import DbConnector
+from DbConnector_mini import DbConnectorMini
+from pymongo import ASCENDING
 
 class Q:
     def __init__(self):
@@ -10,8 +12,16 @@ class Q:
     def close(self):
         self.connection.close_connection()
 
-class TaskProgram(Q):
-    def task1_top_directors(self):
+class QMini:
+    def __init__(self):
+        self.connection = DbConnectorMini()
+        self.client = self.connection.client
+        self.db = self.connection.db
+    def close(self):
+        self.connection.close_connection()
+
+class TaskProgram(QMini):
+    def task1(self):
         pipeline = [
             {"$unwind": "$crew"},
             {"$match": {"crew.job": "Director", "revenue": {"$type": "number"}}},
@@ -166,8 +176,151 @@ class TaskProgram(Q):
             {"$sort": {"decade": 1, "median_runtime": -1}}
         ]
         self.print_task(list(self.db.movies.aggregate(pipeline)), 5)
+    
+    def task3(self):
+        pipeline = [
+            {"$project": {"cast": 1, "genres": 1}},
+            {"$match": {"cast": {"$type": "array"}, "genres": {"$type": "array"}}},
+            {"$unwind": "$cast"},
+            {"$match": {"cast.person_id": {"$type": "number"}}},
+            {"$unwind": "$genres"},
+            {
+                "$group": {
+                    "_id": {"pid": "$cast.person_id", "name": "$cast.name"},
+                    "movies": {"$addToSet": "$_id"},
+                    "genres": {"$addToSet": "$genres"}
+                }
+            },
+            {"$addFields": {
+                "movie_count": {"$size": "$movies"},
+                "genre_breadth": {"$size": "$genres"}
+            }},
+            {"$match": {"movie_count": {"$gte": 10}}},
+            {"$project": {
+                "_id": 0,
+                "actor_id": "$_id.pid",
+                "actor": "$_id.name",
+                "movie_count": 1,
+                "genre_breadth": 1,
+                "example_genres": {"$slice": [{"$sortArray": {"input": "$genres", "sortBy": 1}}, 5]}
+            }},
+            {"$sort": {"genre_breadth": -1, "movie_count": -1, "actor": 1}},
+            {"$limit": 10}
+        ]
+        return list(self.db["movies"].aggregate(pipeline))
+    
+    def task6(self):
+        pipeline = [
+            {"$project": {"cast": 1, "release_date": 1}},
+            {"$unwind": "$cast"},
+            {"$match": {"cast.order": {"$lte": 4}, "cast.gender": {"$in": [1, 2]}}},
+            {"$group": {
+                "_id": {
+                    "movie": "$_id",
+                    "decade": {"$multiply": [{"$floor": {"$divide": [{"$year": "$release_date"}, 10]}}, 10]}
+                },
+                "total_top5_known_cast": {"$sum": 1},
+                "female_top5": {"$sum": {"$cond": [{"$eq": ["$cast.gender", 1]}, 1, 0]}}
+            }},
+            {"$addFields": {
+                "female_ratio": {
+                    "$cond": [
+                        {"$eq": ["$total_top5_known_cast", 0]},
+                        0,
+                        {"$divide": ["$female_top5", "$total_top5_known_cast"]}
+                    ]
+                }
+            }},
+            {"$match": {"female_ratio": {"$ne": None}}},
+            {"$group": {
+                "_id": "$_id.decade",
+                "avg_female_ratio": {"$avg": "$female_ratio"},
+                "movie_count": {"$sum": 1}
+            }},
+            {"$project": {
+                "_id": 0,
+                "decade": {"$concat": [{"$toString": "$_id"}, "s"]},
+                "avg_female_ratio": {"$round": ["$avg_female_ratio", 4]},
+                "movie_count": 1
+            }},
+            {"$sort": {"avg_female_ratio": -1, "decade": 1}}
+        ]
+        return list(self.db["movies"].aggregate(pipeline))
 
+    def ensure_indexes(self):
+        self.db.ratings.create_index([("userId", ASCENDING), ("movieId", ASCENDING)])
+        self.db.movies.create_index([("movieId", ASCENDING)])
 
+    def task10(self):
+        pipeline = [
+            # Per-user stats and distinct movie ids
+            {"$group": {
+                "_id": "$userId",
+                "ratings_count": {"$sum": 1},
+                "std_pop": {"$stdDevPop": "$rating"},
+                "mids": {"$addToSet": "$movieId"}
+            }},
+            {"$match": {"ratings_count": {"$gte": 20}}},
+
+            # Fetch only those users' movies once, project genres only
+            {"$lookup": {
+                "from": "movies",
+                "let": {"mids": "$mids"},
+                "pipeline": [
+                    {"$match": {"$expr": {"$in": ["$movieId", "$$mids"]}}},
+                    {"$project": {"_id": 0, "genres": 1}}
+                ],
+                "as": "m"
+            }},
+
+            # Union all genres across fetched movies
+            {"$set": {
+                "genres_all": {
+                    "$reduce": {
+                        "input": {"$map": {"input": "$m", "as": "mm", "in": "$$mm.genres"}},
+                        "initialValue": [],
+                        "in": {"$setUnion": ["$$value", "$$this"]}
+                    }
+                }
+            }},
+
+            # Final metrics
+            {"$set": {
+                "variance_pop": {"$pow": ["$std_pop", 2]},
+                "genre_count": {"$size": "$genres_all"}
+            }},
+
+            # Final shape + two leaderboards
+            {"$project": {
+                "_id": 0,
+                "userId": "$_id",
+                "ratings_count": 1,
+                "genre_count": 1,
+                "variance_pop": 1,
+                # if your server lacks $sortArray, replace with: {"$slice": ["$genres_all", 5]}
+                "example_genres": {"$slice": [{"$sortArray": {"input": "$genres_all", "sortBy": 1}}, 5]}
+            }},
+            {"$facet": {
+                "most_genre_diverse": [
+                    {"$sort": {"genre_count": -1, "ratings_count": -1, "userId": 1}},
+                    {"$limit": 10}
+                ],
+                "highest_variance": [
+                    {"$sort": {"variance_pop": -1, "ratings_count": -1, "userId": 1}},
+                    {"$limit": 10}
+                ]
+            }}
+        ]
+        return list(self.db["ratings"].aggregate(pipeline, allowDiskUse=True))[0]
+    
+    def print_task10(self, result):
+        print("\nMost genre diverse (top 10):")
+        for doc in result.get("most_genre_diverse", []):
+            pprint(doc, sort_dicts=False, width=100)
+        print("\nHighest variance (top 10):")
+        for doc in result.get("highest_variance", []):
+            pprint(doc, sort_dicts=False, width=100)
+        
 if __name__ == "__main__":
     task = TaskProgram()
     try:
