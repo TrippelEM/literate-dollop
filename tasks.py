@@ -1,3 +1,4 @@
+import os
 from pprint import pprint
 from DbConnector import DbConnector
 
@@ -55,19 +56,60 @@ class TaskProgram(Q):
         ]
         return list(self.db["movies"].aggregate(pipeline))
 
-    def print_task1(self, rows):
-        for doc in rows:
-            pprint(doc, sort_dicts=False, width=100)
-        if not rows:
-            print("No results.")
+    def print_task(self, rows, n):
+        os.makedirs("log",exist_ok=True)
+        output_file = os.path.join("log",f"task{n}_results.txt")
+        with open(output_file, "w", encoding="utf-8") as f:
+            if not rows:
+                print("No results.")
+                f.write("No results.\n")
+                return
+
+            for doc in rows:
+                pprint(doc, sort_dicts=False, width=100)
+                pprint(doc, sort_dicts=False, width=100, stream=f)
+
+        print(f"\nResults saved to {output_file}")
 
     def task2_top_actors(self):
-        pass  # To be implemented
+        pipeline = [
+            {"$match": {
+                "cast": {"$exists": True, "$ne": []},
+                "vote_average": {"$type": "number"}
+            }},
+            {"$project": {
+                "vote_average": 1,
+                "castA": {"$map": {"input": "$cast", "as": "c", "in": {"id": "$$c.person_id", "name": "$$c.name"}}},
+                "castB": {"$map": {"input": "$cast", "as": "c", "in": {"id": "$$c.person_id", "name": "$$c.name"}}}
+            }},
+            {"$unwind": "$castA"},
+            {"$unwind": "$castB"},
+            {"$match": {"$expr": {"$lt": ["$castA.id", "$castB.id"]}}},
+            {"$group": {
+                "_id": {"a": "$castA.id", "b": "$castB.id"},
+                "actor1": {"$first": "$castA.name"},
+                "actor2": {"$first": "$castB.name"},
+                "co_appearances": {"$sum": 1},
+                "avg_vote_average": {"$avg": "$vote_average"}
+            }},
+            {"$match": {"co_appearances": {"$gte": 3}}},
+            {"$sort": {"co_appearances": -1, "avg_vote_average": -1}},
+            {"$project": {
+                "_id": 0,
+                "actor1": 1,
+                "actor2": 1,
+                "co_appearances": 1,
+                "avg_vote_average": {"$round": ["$avg_vote_average", 2]}
+            }}
+        ]
+        self.print_task(list(self.db.movies.aggregate(pipeline)),2)
+
 
 if __name__ == "__main__":
     task = TaskProgram()
     try:
-        res = task.task1_top_directors()
-        task.print_task1(res)
+        # res = task.task1_top_directors()
+        # task.print_task(res,1)
+        task.task2_top_actors()
     finally:
         task.close()
