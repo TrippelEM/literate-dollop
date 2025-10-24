@@ -106,14 +106,7 @@ class TaskProgram(Q):
 
     def task4(self):
         pipeline = [
-            {
-                "$match": {
-                    "collection": {"$ne": None},
-                    "revenue": {"$type": "number"},
-                    "vote_average": {"$type": "number"},
-                    "release_date": {"$type": "date"}
-                }
-            },
+            {"$match": {"collection": {"$ne": None}}},
             {"$group": {
                 "_id": {"id": "$collection.id", "name": "$collection.name"},
                 "movie_count": {"$sum": 1},
@@ -140,12 +133,46 @@ class TaskProgram(Q):
         ]
         self.print_task(list(self.db.movies.aggregate(pipeline)),4)
 
+    def task5(self):
+        pipeline = [
+            {"$match": {
+                "genres": {"$exists": True, "$ne": []},
+                "release_date": {"$type": "date"}
+            }},
+            {"$project": {
+                "runtime": 1,
+                "primary_genre": {"$first": "$genres"},
+                "decade": {
+                    "$multiply": [
+                        {"$floor": {"$divide": [{"$year": "$release_date"}, 10]}},
+                        10
+                    ]
+                }
+            }},
+            {"$group": {
+                "_id": {"decade": "$decade", "primary_genre": "$primary_genre"},
+                "movie_count": {"$sum": 1},
+                "median_runtime": {"$median": {"input": "$runtime", "method": "approximate"}}
+            }},
+            {"$project": {
+                "_id": 0,
+                "decade": "$_id.decade",
+                "decade_label": {"$concat": [{"$toString": "$_id.decade"}, "s"]},
+                "primary_genre": "$_id.primary_genre",
+                "movie_count": 1,
+                "median_runtime": {"$round": ["$median_runtime", 1]}
+            }},
+            # sort by decade asc, then median runtime desc
+            {"$sort": {"decade": 1, "median_runtime": -1}}
+        ]
+        self.print_task(list(self.db.movies.aggregate(pipeline)), 5)
+
 
 if __name__ == "__main__":
     task = TaskProgram()
     try:
         # res = task.task1_top_directors()
         # task.print_task(res,1)
-        task.task2_top_actors()
+        task.task5()
     finally:
         task.close()
