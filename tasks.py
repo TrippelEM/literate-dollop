@@ -251,6 +251,68 @@ class TaskProgram(QMini):
         self.db.ratings.create_index([("userId", ASCENDING), ("movieId", ASCENDING)])
         self.db.movies.create_index([("movieId", ASCENDING)])
 
+    def task7(self):
+        # Make sure the text index exists (idempotent)
+        self.db.movies.create_index([("overview", "text"), ("tagline", "text")])
+
+        base_match = {
+            "vote_count": {"$gte": 50},
+            "vote_average": {"$type": "number"},
+            "release_date": {"$type": "date"},
+        }
+        # we have to do it in two separate queries because
+        # text search with exact strings requires all documents to have the exact term meaning
+        # that documents that only contain noir wont be included.
+        # using regex is not allowed with text search so i just chose to use 2 text searches
+        # instead of using regex.
+        # https://www.mongodb.com/docs/manual/reference/operator/query/text/#exact-strings
+        #
+        # Query 1: exact phrase "neo-noir"
+        pipeline_neo = [
+            {"$match": {**base_match, "$text": {"$search": "\"neo-noir\""}}},
+            {"$project": {
+                "_id": 1,
+                "title": 1,
+                "year": {"$year": "$release_date"},
+                "vote_average": 1,
+                "vote_count": 1,
+            }},
+        ]
+
+        # Query 2: plain noir
+        pipeline_noir = [
+            {"$match": {**base_match, "$text": {"$search": "noir"}}},
+            {"$project": {
+                "_id": 1,
+                "title": 1,
+                "year": {"$year": "$release_date"},
+                "vote_average": 1,
+                "vote_count": 1,
+            }},
+        ]
+
+        # Execute both
+        neo_rows = list(self.db.movies.aggregate(pipeline_neo))
+        noir_rows = list(self.db.movies.aggregate(pipeline_noir))
+
+        # Union by _id
+        by_id = {}
+        for row in neo_rows + noir_rows:
+            by_id[row["_id"]] = row
+        combined = list(by_id.values())
+
+        # Sort & take top 20
+        combined.sort(key=lambda d: (-d["vote_average"], -d["vote_count"], d["title"]))
+        combined = combined[:20]
+
+        # Drop _id for printing
+        for d in combined:
+            d.pop("_id", None)
+
+        # Print + save using your print_task
+        self.print_task(combined, 7)
+
+
     def task10(self):
         pipeline = [
             # Per-user stats and distinct movie ids
