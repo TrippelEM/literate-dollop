@@ -1,5 +1,6 @@
 .venv
 .idea/
 movies/
+log/
 __pycache__
 .DS_Store
