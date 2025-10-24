@@ -2,7 +2,7 @@ from pymongo import MongoClient, version
 from pymongo import InsertOne
 
 
-class DbConnector:
+class DbConnectorMini:
     """
     Connects to the MongoDB server on the Ubuntu virtual machine.
     Connector needs HOST, USER and PASSWORD to connect.
@@ -14,11 +14,12 @@ class DbConnector:
     """
 
     def __init__(self,
-                 DATABASE='movie_db',
+                 DATABASE='movie_db_mini',
                  HOST="localhost",
                  USER="slaver",
                  PASSWORD="root"):
-        uri = "mongodb://%s:%s@%s/%s" % (USER, PASSWORD, HOST, DATABASE)
+        #uri = f"mongodb://{USER}:{PASSWORD}@{HOST}:27018/{DATABASE}?authSource=movie_db_mini"
+        uri = "mongodb://slaver:root@localhost:27018/movie_db_mini?authSource=movie_db_mini"
         print(uri)
         # Connect to the databases
         try:
@@ -30,6 +31,7 @@ class DbConnector:
         # get database information
         print("You are connected to the database:", self.db.name)
         print("-----------------------------------------------\n")
+        print(uri)
 
     def close_connection(self):
         # close the cursor
