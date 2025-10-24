@@ -104,6 +104,42 @@ class TaskProgram(Q):
         ]
         self.print_task(list(self.db.movies.aggregate(pipeline)),2)
 
+    def task4(self):
+        pipeline = [
+            {
+                "$match": {
+                    "collection": {"$ne": None},
+                    "revenue": {"$type": "number"},
+                    "vote_average": {"$type": "number"},
+                    "release_date": {"$type": "date"}
+                }
+            },
+            {"$group": {
+                "_id": {"id": "$collection.id", "name": "$collection.name"},
+                "movie_count": {"$sum": 1},
+                "total_revenue": {"$sum": "$revenue"},
+                "median_vote_average": {
+                    "$median": {"input": "$vote_average", "method": "approximate"}
+                },
+                "earliest_release_date": {"$min": "$release_date"},
+                "latest_release_date": {"$max": "$release_date"}
+            }},
+            {"$match": {"movie_count": {"$gte": 3}}},
+            {"$project": {
+                "_id": 0,
+                "collection_id": "$_id.id",
+                "collection_name": "$_id.name",
+                "movie_count": 1,
+                "total_revenue": 1,
+                "median_vote_average": {"$round": ["$median_vote_average", 2]},
+                "earliest_release_date": 1,
+                "latest_release_date": 1
+            }},
+            {"$sort": {"total_revenue": -1}},
+            {"$limit": 10}
+        ]
+        self.print_task(list(self.db.movies.aggregate(pipeline)),4)
+
 
 if __name__ == "__main__":
     task = TaskProgram()
