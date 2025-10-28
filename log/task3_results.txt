@@ -1,0 +1,50 @@
+{'movie_count': 145,
+ 'genre_breadth': 20,
+ 'actor_id': 113,
+ 'actor': 'Christopher Lee',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 107,
+ 'genre_breadth': 20,
+ 'actor_id': 55636,
+ 'actor': 'Donald Sutherland',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 96,
+ 'genre_breadth': 20,
+ 'actor_id': 4690,
+ 'actor': 'Christopher Walken',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 92,
+ 'genre_breadth': 20,
+ 'actor_id': 2778,
+ 'actor': 'Dennis Hopper',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 87,
+ 'genre_breadth': 20,
+ 'actor_id': 65827,
+ 'actor': 'Keith David',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 82,
+ 'genre_breadth': 20,
+ 'actor_id': 3896,
+ 'actor': 'Liam Neeson',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 78,
+ 'genre_breadth': 20,
+ 'actor_id': 388,
+ 'actor': 'Jim Broadbent',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 77,
+ 'genre_breadth': 20,
+ 'actor_id': 15152,
+ 'actor': 'James Earl Jones',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 76,
+ 'genre_breadth': 20,
+ 'actor_id': 8349,
+ 'actor': 'Martin Sheen',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}
+{'movie_count': 70,
+ 'genre_breadth': 20,
+ 'actor_id': 13726,
+ 'actor': 'Ned Beatty',
+ 'example_genres': ['Action', 'Adventure', 'Animation', 'Comedy', 'Crime']}

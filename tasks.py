@@ -64,22 +64,7 @@ class TaskProgram(Q):
             {"$sort": {"median_revenue": -1}},
             {"$limit": 10}
         ]
-        return list(self.db["movies"].aggregate(pipeline))
-
-    def print_task(self, rows, n):
-        os.makedirs("log",exist_ok=True)
-        output_file = os.path.join("log",f"task{n}_results.txt")
-        with open(output_file, "w", encoding="utf-8") as f:
-            if not rows:
-                print("No results.")
-                f.write("No results.\n")
-                return
-
-            for doc in rows:
-                pprint(doc, sort_dicts=False, width=100)
-                pprint(doc, sort_dicts=False, width=100, stream=f)
-
-        print(f"\nResults saved to {output_file}")
+        self.print_task(list(self.db["movies"].aggregate(pipeline)),1)
 
     def task2(self):
         pipeline = [
@@ -144,7 +129,7 @@ class TaskProgram(Q):
             {"$sort": {"genre_breadth": -1, "movie_count": -1, "actor": 1}},
             {"$limit": 10}
         ]
-        return list(self.db["movies"].aggregate(pipeline))
+        self.print_task(list(self.db["movies"].aggregate(pipeline)),3)
 
     def task4(self):
         pipeline = [
@@ -257,8 +242,69 @@ class TaskProgram(Q):
             }},
             {"$sort": {"avg_female_ratio": -1, "decade": 1}}
         ]
-        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
-    
+        self.print_task(list(self.db["movies"].aggregate(pipeline, allowDiskUse=True)),6)
+
+    def task7(self):
+        # Make sure the text index exists (idempotent)
+        self.db.movies.create_index([("overview", "text"), ("tagline", "text")])
+
+        base_match = {
+            "vote_count": {"$gte": 50},
+            "vote_average": {"$type": "number"},
+            "release_date": {"$type": "date"},
+        }
+        # we have to do it in two separate queries because
+        # text search with exact strings requires all documents to have the exact term meaning
+        # that documents that only contain noir won't be included.
+        # using regex is not allowed with text search so, I just chose to use 2 text searches
+        # instead of using regex.
+        # https://www.mongodb.com/docs/manual/reference/operator/query/text/#exact-strings
+        #
+        # Query 1: exact phrase "neo-noir"
+        pipeline_neo = [
+            {"$match": {**base_match, "$text": {"$search": "\"neo-noir\""}}},
+            {"$project": {
+                "_id": 1,
+                "title": 1,
+                "year": {"$year": "$release_date"},
+                "vote_average": 1,
+                "vote_count": 1,
+            }},
+        ]
+
+        # Query 2: plain noir
+        pipeline_noir = [
+            {"$match": {**base_match, "$text": {"$search": "noir"}}},
+            {"$project": {
+                "_id": 1,
+                "title": 1,
+                "year": {"$year": "$release_date"},
+                "vote_average": 1,
+                "vote_count": 1,
+            }},
+        ]
+
+        # Execute both
+        neo_rows = list(self.db.movies.aggregate(pipeline_neo))
+        noir_rows = list(self.db.movies.aggregate(pipeline_noir))
+
+        # Union by _id
+        by_id = {}
+        for row in neo_rows + noir_rows:
+            by_id[row["_id"]] = row
+        combined = list(by_id.values())
+
+        # Sort & take top 20
+        combined.sort(key=lambda d: (-d["vote_average"], -d["vote_count"], d["title"]))
+        combined = combined[:20]
+
+        # Drop _id for printing
+        for movie in combined:
+            movie.pop("_id", None)
+
+        # Print + save using your print_task
+        self.print_task(combined, 7)
+
     def task8(self):
         pipeline = [
             {"$match": {
@@ -319,7 +365,7 @@ class TaskProgram(Q):
             {"$sort": {"mean_vote_average": -1, "films_count": -1, "director": 1, "actor": 1}},
             {"$limit": 20}
         ]
-        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
+        self.print_task(list(self.db["movies"].aggregate(pipeline, allowDiskUse=True)),8)
     
     def task9(self):
         pipeline = [
@@ -348,73 +394,7 @@ class TaskProgram(Q):
             {"$sort": {"count": -1, "language": 1}},
             {"$limit": 10}
         ]
-        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
-
-    def ensure_indexes(self):
-        self.db.ratings.create_index([("userId", ASCENDING), ("movieId", ASCENDING)])
-        self.db.movies.create_index([("movieId", ASCENDING)])
-
-    def task7(self):
-        # Make sure the text index exists (idempotent)
-        self.db.movies.create_index([("overview", "text"), ("tagline", "text")])
-
-        base_match = {
-            "vote_count": {"$gte": 50},
-            "vote_average": {"$type": "number"},
-            "release_date": {"$type": "date"},
-        }
-        # we have to do it in two separate queries because
-        # text search with exact strings requires all documents to have the exact term meaning
-        # that documents that only contain noir wont be included.
-        # using regex is not allowed with text search so i just chose to use 2 text searches
-        # instead of using regex.
-        # https://www.mongodb.com/docs/manual/reference/operator/query/text/#exact-strings
-        #
-        # Query 1: exact phrase "neo-noir"
-        pipeline_neo = [
-            {"$match": {**base_match, "$text": {"$search": "\"neo-noir\""}}},
-            {"$project": {
-                "_id": 1,
-                "title": 1,
-                "year": {"$year": "$release_date"},
-                "vote_average": 1,
-                "vote_count": 1,
-            }},
-        ]
-
-        # Query 2: plain noir
-        pipeline_noir = [
-            {"$match": {**base_match, "$text": {"$search": "noir"}}},
-            {"$project": {
-                "_id": 1,
-                "title": 1,
-                "year": {"$year": "$release_date"},
-                "vote_average": 1,
-                "vote_count": 1,
-            }},
-        ]
-
-        # Execute both
-        neo_rows = list(self.db.movies.aggregate(pipeline_neo))
-        noir_rows = list(self.db.movies.aggregate(pipeline_noir))
-
-        # Union by _id
-        by_id = {}
-        for row in neo_rows + noir_rows:
-            by_id[row["_id"]] = row
-        combined = list(by_id.values())
-
-        # Sort & take top 20
-        combined.sort(key=lambda d: (-d["vote_average"], -d["vote_count"], d["title"]))
-        combined = combined[:20]
-
-        # Drop _id for printing
-        for d in combined:
-            d.pop("_id", None)
-
-        # Print + save using your print_task
-        self.print_task(combined, 7)
-
+        self.print_task(list(self.db["movies"].aggregate(pipeline, allowDiskUse=True)),9)
 
     def task10(self):
         pipeline = [
@@ -474,8 +454,27 @@ class TaskProgram(Q):
                 ]
             }}
         ]
-        return list(self.db["ratings"].aggregate(pipeline, allowDiskUse=True))[0]
-    
+        self.print_task10(list(self.db["ratings"].aggregate(pipeline, allowDiskUse=True))[0])
+
+    def ensure_indexes(self):
+        self.db.ratings.create_index([("userId", ASCENDING), ("movieId", ASCENDING)])
+        self.db.movies.create_index([("movieId", ASCENDING)])
+
+    def print_task(self, rows, n):
+        os.makedirs("log",exist_ok=True)
+        output_file = os.path.join("log",f"task{n}_results.txt")
+        with open(output_file, "w", encoding="utf-8") as f:
+            if not rows:
+                print("No results.")
+                f.write("No results.\n")
+                return
+
+            for doc in rows:
+                pprint(doc, sort_dicts=False, width=100)
+                pprint(doc, sort_dicts=False, width=100, stream=f)
+
+        print(f"\nResults saved to {output_file}")
+
     def print_task10(self, result, filepath="log/task10_results.txt"):
         os.makedirs(os.path.dirname(filepath), exist_ok=True)
         most = result.get("most_genre_diverse", [])
@@ -504,8 +503,14 @@ class TaskProgram(Q):
 if __name__ == "__main__":
     task = TaskProgram()
     try:
-        # res = task.task1_top_directors()
-        # task.print_task(res,1)
+        task.task1()
+        task.task2()
+        task.task3()
+        task.task4()
         task.task5()
+        task.task6()
+        task.task7()
+        task.task8()
+        task.task9()
     finally:
         task.close()

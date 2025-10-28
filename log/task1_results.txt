@@ -1,0 +1,50 @@
+{'median_revenue': 649398328,
+ 'person_id': 1,
+ 'director': 'George Lucas',
+ 'movie_count': 7,
+ 'mean_vote_average': 6.814}
+{'median_revenue': 619388635.5,
+ 'person_id': 10943,
+ 'director': 'Francis Lawrence',
+ 'movie_count': 6,
+ 'mean_vote_average': 6.8}
+{'median_revenue': 583042696.5,
+ 'person_id': 11343,
+ 'director': 'David Yates',
+ 'movie_count': 10,
+ 'mean_vote_average': 6.03}
+{'median_revenue': 543513985,
+ 'person_id': 124748,
+ 'director': 'Chris Renaud',
+ 'movie_count': 5,
+ 'mean_vote_average': 6.7}
+{'median_revenue': 532680671,
+ 'person_id': 18864,
+ 'director': 'Tom McGrath',
+ 'movie_count': 5,
+ 'mean_vote_average': 6.4}
+{'median_revenue': 532680671,
+ 'person_id': 18863,
+ 'director': 'Eric Darnell',
+ 'movie_count': 5,
+ 'mean_vote_average': 6.34}
+{'median_revenue': 484635760,
+ 'person_id': 5714,
+ 'director': 'Carlos Saldanha',
+ 'movie_count': 7,
+ 'mean_vote_average': 6.043}
+{'median_revenue': 452030315.5,
+ 'person_id': 5524,
+ 'director': 'Andrew Adamson',
+ 'movie_count': 6,
+ 'mean_vote_average': 6.517}
+{'median_revenue': 449220945,
+ 'person_id': 865,
+ 'director': 'Michael Bay',
+ 'movie_count': 13,
+ 'mean_vote_average': 6.392}
+{'median_revenue': 416438570.0,
+ 'person_id': 7087,
+ 'director': 'Brad Bird',
+ 'movie_count': 6,
+ 'mean_vote_average': 7.15}
