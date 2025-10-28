@@ -1,4 +1,45 @@
-# TDT4225 Assignment 3 - Movies to MongoDB
+# TDT4225 Assignment 3 – Movies to MongoDB
+## Container setup
+### Create the container
+
+```bash
+docker pull mongo:latest
+docker volume create mongo_data
+
+docker run -d \
+  --name mongodb \
+  -p 27017:27017 \
+  -v mongo_data:/data/db \
+  mongo
+```
+
+### Create users in the container
+
+```bash
+docker exec -it mongodb mongosh
+```
+
+Then inside the Mongo shell:
+
+```js
+use admin;
+
+db.createUser({
+  user: 'driver',
+  pwd: 'root',
+  roles: ['root']
+});
+
+use movie_db;
+
+db.createUser({
+  user: 'slaver',
+  pwd: 'root',
+  roles: ['readWrite']
+});
+```
+
+
 
 ## Structure
 
@@ -6,8 +47,8 @@
 .
 ├─ DbConnector.py      # Mongo client, bulk insert, index helpers
 ├─ DbUploader.py       # Wrapper for drop, insert, indexes, stats
-├─ eda.ipynb      # EDA, build docs, load to MongoDB
-├─ requirements.txt # pip install -r requirements.txt
+├─ eda.ipynb           # EDA, build docs, load to MongoDB
+├─ requirements.txt    # pip install -r requirements.txt
 └─ movies/             # CSVs: movies_metadata.csv, credits.csv, keywords.csv, links.csv, ratings.csv
 ```
 
@@ -19,67 +60,26 @@ pymongo==4.10.1
 tabulate==0.9.0
 ```
 
-  ```bash
-  pip install pymongo pandas numpy matplotlib
-  ```
+Or install manually:
+
+```bash
+pip install pymongo pandas numpy matplotlib
+```
 
 ## Data
 
-Place CSVs in `movies/`:
+Place CSVs in the `movies/` directory:
 
-* `movies_metadata.csv`
-* `credits.csv`
-* `keywords.csv`
-* `links.csv`  (use `links_small.csv` for dev if needed)
-* `ratings.csv`  (use `ratings_small.csv` for dev if needed)
+- `movies_metadata.csv`
+- `credits.csv`
+- `keywords.csv`
+- `links.csv`  (use `links_small.csv` for dev if needed)
+- `ratings.csv`  (use `ratings_small.csv` for dev if needed)
 
-`links.csv` maps MovieLens `movieId` to TMDB `tmdbId` and IMDb `imdbId`. IMDb IDs are stored as zero padded strings, e.g. `"0114709"`.
+`links.csv` maps MovieLens `movieId` to TMDB `tmdbId` and IMDb `imdbId`.  
+IMDb IDs are stored as zero-padded strings (e.g., `"0114709"`).
 
-## MongoDB connection
 
-Create a database user in your MongoDB:
-
-# Create container like this
-
-docker pull mongo:latest
-docker volume create mongo_data
-
-docker run -d \
-  --name mongodb \
-  -p 27017:27017 \
-  -v mongo_data:/data/db \
-  mongo
-
-# create user in container like this
-
-docker exec -it mongodb mongosh
-
-use admin
-
-db.createUser({
-user: 'driver',
-pwd: 'root',
-roles: ['root']
-})
-
-use movie_db;
-
-db.createUser({
-user: 'slaver',
-pwd: 'root',
-roles: ['readWrite']
-})
-
-```python
-from DbUploader import DbUploader
-
-prog = DbUploader(
-    DATABASE="movie_db",
-    HOST="localhost",
-    USER="your_user",
-    PASSWORD="your_password",
-)
-```
 
 ## Schemas
 
@@ -130,15 +130,5 @@ prog = DbUploader(
   "movieId": int,
   "rating": double,
   "timestamp": ISODate
-}
-```
-
-### `links`
-
-```json
-{
-  "movieId": int,
-  "imdbId": "0114709" | null,
-  "tmdbId": int | null
 }
 ```
