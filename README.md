@@ -52,19 +52,6 @@ db.createUser({
 └─ movies/             # CSVs: movies_metadata.csv, credits.csv, keywords.csv, links.csv, ratings.csv
 ```
 
-## Requirements
-
-```
-haversine==2.8.0
-pymongo==4.10.1
-tabulate==0.9.0
-```
-
-Or install manually:
-
-```bash
-pip install pymongo pandas numpy matplotlib
-```
 
 ## Data
 
