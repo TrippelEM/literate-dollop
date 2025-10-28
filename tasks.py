@@ -503,14 +503,14 @@ class TaskProgram(Q):
 if __name__ == "__main__":
     task = TaskProgram()
     try:
-        task.task1()
-        task.task2()
-        task.task3()
-        task.task4()
-        task.task5()
-        task.task6()
-        task.task7()
-        task.task8()
+        # task.task1()
+        # task.task2()
+        # task.task3()
+        # task.task4()
+        # task.task5()
+        # task.task6()
+        # task.task7()
+        # task.task8()
         task.task9()
         #Takes a long time, uncomment if you want to test task 10 query
         #task.task10()
