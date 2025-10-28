@@ -46,6 +46,7 @@ db.createUser({
 ```
 .
 ├─ DbConnector.py      # Mongo client, bulk insert, index helpers
+├─ log                 # Log outputs from running each task 
 ├─ DbUploader.py       # Wrapper for drop, insert, indexes, stats
 ├─ eda.ipynb           # EDA, build docs, load to MongoDB
 ├─ requirements.txt    # pip install -r requirements.txt
