@@ -1,0 +1,15 @@
+{'movie_count': 1, 'decade': '1870s', 'avg_female_ratio': 1.0}
+{'movie_count': 1, 'decade': '2020s', 'avg_female_ratio': 0.8}
+{'movie_count': 2, 'decade': '1890s', 'avg_female_ratio': 0.5}
+{'movie_count': 12, 'decade': '1900s', 'avg_female_ratio': 0.4583}
+{'movie_count': 10436, 'decade': '2010s', 'avg_female_ratio': 0.3771}
+{'movie_count': 1246, 'decade': '1930s', 'avg_female_ratio': 0.3685}
+{'movie_count': 9608, 'decade': '2000s', 'avg_female_ratio': 0.3622}
+{'movie_count': 1433, 'decade': '1940s', 'avg_female_ratio': 0.3587}
+{'movie_count': 142, 'decade': '1910s', 'avg_female_ratio': 0.3414}
+{'movie_count': 5160, 'decade': '1990s', 'avg_female_ratio': 0.3385}
+{'movie_count': 1994, 'decade': '1950s', 'avg_female_ratio': 0.3379}
+{'movie_count': 372, 'decade': '1920s', 'avg_female_ratio': 0.3294}
+{'movie_count': 2384, 'decade': '1960s', 'avg_female_ratio': 0.3247}
+{'movie_count': 3548, 'decade': '1980s', 'avg_female_ratio': 0.3202}
+{'movie_count': 3136, 'decade': '1970s', 'avg_female_ratio': 0.3104}

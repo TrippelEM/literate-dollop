@@ -1,0 +1,1160 @@
+{'movie_count': 2,
+ 'decade': 1870.0,
+ 'decade_label': '1870s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 1.0}
+{'movie_count': 4,
+ 'decade': 1880.0,
+ 'decade_label': '1880s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 1.0}
+{'movie_count': 3,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 1.0}
+{'movie_count': 1,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'History',
+ 'median_runtime': 1.0}
+{'movie_count': 8,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 1.0}
+{'movie_count': 1,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 1.0}
+{'movie_count': 9,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 1.0}
+{'movie_count': 27,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 1.0}
+{'movie_count': 2,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 1.0}
+{'movie_count': 2,
+ 'decade': 1890.0,
+ 'decade_label': '1890s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 1.0}
+{'movie_count': 1,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'History',
+ 'median_runtime': 60.0}
+{'movie_count': 4,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 14.0}
+{'movie_count': 7,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 10.0}
+{'movie_count': 1,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 8.0}
+{'movie_count': 2,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 6.0}
+{'movie_count': 15,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 4.0}
+{'movie_count': 2,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 3.0}
+{'movie_count': 1,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 3.0}
+{'movie_count': 17,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 3.0}
+{'movie_count': 2,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 2.0}
+{'movie_count': 1,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 2.0}
+{'movie_count': 2,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 1.0}
+{'movie_count': 12,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 1.0}
+{'movie_count': 2,
+ 'decade': 1900.0,
+ 'decade_label': '1900s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 1.0}
+{'movie_count': 2,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'History',
+ 'median_runtime': 106.0}
+{'movie_count': 3,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 84.0}
+{'movie_count': 8,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 69.0}
+{'movie_count': 6,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 65.0}
+{'movie_count': 52,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 64.0}
+{'movie_count': 7,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 59.0}
+{'movie_count': 1,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 52.0}
+{'movie_count': 2,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'War',
+ 'median_runtime': 50.0}
+{'movie_count': 4,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 50.0}
+{'movie_count': 1,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 29.0}
+{'movie_count': 54,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 27.0}
+{'movie_count': 6,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 14.0}
+{'movie_count': 2,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 13.0}
+{'movie_count': 5,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 12.0}
+{'movie_count': 2,
+ 'decade': 1910.0,
+ 'decade_label': '1910s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 6.0}
+{'movie_count': 1,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 120.0}
+{'movie_count': 2,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 105.0}
+{'movie_count': 4,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'War',
+ 'median_runtime': 102.0}
+{'movie_count': 4,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'History',
+ 'median_runtime': 100.0}
+{'movie_count': 22,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 95.0}
+{'movie_count': 165,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 90.0}
+{'movie_count': 4,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 90.0}
+{'movie_count': 18,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 90.0}
+{'movie_count': 18,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 86.0}
+{'movie_count': 10,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 86.0}
+{'movie_count': 5,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 83.0}
+{'movie_count': 16,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 82.0}
+{'movie_count': 93,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 66.0}
+{'movie_count': 18,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 65.0}
+{'movie_count': 4,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 49.0}
+{'movie_count': 2,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 41.0}
+{'movie_count': 2,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 20.0}
+{'movie_count': 10,
+ 'decade': 1920.0,
+ 'decade_label': '1920s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 6.0}
+{'movie_count': 32,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 93.0}
+{'movie_count': 55,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 90.0}
+{'movie_count': 10,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'History',
+ 'median_runtime': 86.0}
+{'movie_count': 382,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 85.0}
+{'movie_count': 13,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'War',
+ 'median_runtime': 85.0}
+{'movie_count': 80,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 85.0}
+{'movie_count': 22,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 81.0}
+{'movie_count': 353,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 81.0}
+{'movie_count': 5,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 80.0}
+{'movie_count': 5,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 78.0}
+{'movie_count': 80,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 76.0}
+{'movie_count': 10,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 76.0}
+{'movie_count': 8,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 75.0}
+{'movie_count': 92,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 74.0}
+{'movie_count': 38,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 70.0}
+{'movie_count': 28,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 68.0}
+{'movie_count': 14,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 59.0}
+{'movie_count': 37,
+ 'decade': 1930.0,
+ 'decade_label': '1930s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 8.0}
+{'movie_count': 1,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 220.0}
+{'movie_count': 11,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'History',
+ 'median_runtime': 107.0}
+{'movie_count': 45,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 98.0}
+{'movie_count': 468,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 98.0}
+{'movie_count': 88,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 93.0}
+{'movie_count': 35,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 92.0}
+{'movie_count': 52,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 91.0}
+{'movie_count': 41,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'War',
+ 'median_runtime': 91.0}
+{'movie_count': 326,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 90.0}
+{'movie_count': 47,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 86.0}
+{'movie_count': 41,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 86.0}
+{'movie_count': 136,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 85.0}
+{'movie_count': 23,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 85.0}
+{'movie_count': 8,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 81.0}
+{'movie_count': 41,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 71.0}
+{'movie_count': 27,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 67.0}
+{'movie_count': 20,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 54.0}
+{'movie_count': 34,
+ 'decade': 1940.0,
+ 'decade_label': '1940s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 8.0}
+{'movie_count': 34,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 100.0}
+{'movie_count': 636,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 98.0}
+{'movie_count': 17,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'History',
+ 'median_runtime': 97.0}
+{'movie_count': 77,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 95.0}
+{'movie_count': 46,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'War',
+ 'median_runtime': 95.0}
+{'movie_count': 100,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 93.0}
+{'movie_count': 167,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 93.0}
+{'movie_count': 350,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 92.0}
+{'movie_count': 22,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 91.0}
+{'movie_count': 13,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 88.0}
+{'movie_count': 170,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 86.0}
+{'movie_count': 46,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 85.0}
+{'movie_count': 110,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 84.0}
+{'movie_count': 21,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 79.0}
+{'movie_count': 50,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 78.0}
+{'movie_count': 79,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 78.0}
+{'movie_count': 32,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 31.0}
+{'movie_count': 27,
+ 'decade': 1950.0,
+ 'decade_label': '1950s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 7.0}
+{'movie_count': 52,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'War',
+ 'median_runtime': 110.0}
+{'movie_count': 25,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'History',
+ 'median_runtime': 110.0}
+{'movie_count': 724,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 102.0}
+{'movie_count': 76,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 102.0}
+{'movie_count': 29,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 100.0}
+{'movie_count': 36,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 100.0}
+{'movie_count': 252,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 100.0}
+{'movie_count': 107,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 100.0}
+{'movie_count': 99,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 98.0}
+{'movie_count': 497,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 97.0}
+{'movie_count': 139,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 97.0}
+{'movie_count': 55,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 96.0}
+{'movie_count': 10,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 91.0}
+{'movie_count': 30,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 90.0}
+{'movie_count': 6,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 90.0}
+{'movie_count': 146,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 87.0}
+{'movie_count': 58,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 84.0}
+{'movie_count': 20,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 80.0}
+{'movie_count': 77,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 80.0}
+{'movie_count': 36,
+ 'decade': 1960.0,
+ 'decade_label': '1960s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 25.0}
+{'movie_count': 23,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'History',
+ 'median_runtime': 116.0}
+{'movie_count': 36,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'War',
+ 'median_runtime': 103.0}
+{'movie_count': 61,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 102.0}
+{'movie_count': 873,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 102.0}
+{'movie_count': 153,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 100.0}
+{'movie_count': 57,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 99.0}
+{'movie_count': 135,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 98.0}
+{'movie_count': 33,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 98.0}
+{'movie_count': 124,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 97.0}
+{'movie_count': 468,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 97.0}
+{'movie_count': 89,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 96.0}
+{'movie_count': 20,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 96.0}
+{'movie_count': 512,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 95.0}
+{'movie_count': 49,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 93.0}
+{'movie_count': 48,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 93.0}
+{'movie_count': 321,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 91.0}
+{'movie_count': 41,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 89.0}
+{'movie_count': 139,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 86.0}
+{'movie_count': 28,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 85.0}
+{'movie_count': 60,
+ 'decade': 1970.0,
+ 'decade_label': '1970s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 30.0}
+{'movie_count': 32,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'War',
+ 'median_runtime': 120.0}
+{'movie_count': 858,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 105.0}
+{'movie_count': 29,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 102.0}
+{'movie_count': 136,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 102.0}
+{'movie_count': 169,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 101.0}
+{'movie_count': 17,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'History',
+ 'median_runtime': 100.0}
+{'movie_count': 87,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 98.0}
+{'movie_count': 494,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 98.0}
+{'movie_count': 10,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 97.0}
+{'movie_count': 71,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 97.0}
+{'movie_count': 39,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 97.0}
+{'movie_count': 860,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 95.0}
+{'movie_count': 83,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 95.0}
+{'movie_count': 39,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 94.0}
+{'movie_count': 91,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 93.0}
+{'movie_count': 382,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 91.0}
+{'movie_count': 43,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 90.0}
+{'movie_count': 7,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 89.0}
+{'movie_count': 128,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 83.0}
+{'movie_count': 117,
+ 'decade': 1980.0,
+ 'decade_label': '1980s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 69.0}
+{'movie_count': 24,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'War',
+ 'median_runtime': 115.0}
+{'movie_count': 34,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'History',
+ 'median_runtime': 110.0}
+{'movie_count': 1460,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 104.0}
+{'movie_count': 183,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 104.0}
+{'movie_count': 17,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 100.0}
+{'movie_count': 57,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 100.0}
+{'movie_count': 170,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 99.0}
+{'movie_count': 146,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 98.0}
+{'movie_count': 697,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 98.0}
+{'movie_count': 198,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 97.0}
+{'movie_count': 22,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 96.0}
+{'movie_count': 1189,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 96.0}
+{'movie_count': 136,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 95.0}
+{'movie_count': 73,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 94.0}
+{'movie_count': 97,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 94.0}
+{'movie_count': 60,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 93.0}
+{'movie_count': 237,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 93.0}
+{'movie_count': 75,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 90.0}
+{'movie_count': 256,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 85.0}
+{'movie_count': 142,
+ 'decade': 1990.0,
+ 'decade_label': '1990s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 74.0}
+{'movie_count': 54,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'War',
+ 'median_runtime': 113.0}
+{'movie_count': 49,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'History',
+ 'median_runtime': 108.0}
+{'movie_count': 3135,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 101.0}
+{'movie_count': 210,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 101.0}
+{'movie_count': 362,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 101.0}
+{'movie_count': 340,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 100.0}
+{'movie_count': 170,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 98.0}
+{'movie_count': 101,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 97.0}
+{'movie_count': 1166,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 97.0}
+{'movie_count': 330,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 96.0}
+{'movie_count': 36,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 95.0}
+{'movie_count': 16,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 95.0}
+{'movie_count': 2232,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 95.0}
+{'movie_count': 100,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 95.0}
+{'movie_count': 115,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 92.0}
+{'movie_count': 603,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 91.0}
+{'movie_count': 104,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 90.0}
+{'movie_count': 112,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 89.0}
+{'movie_count': 1044,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 87.0}
+{'movie_count': 326,
+ 'decade': 2000.0,
+ 'decade_label': '2000s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 76.0}
+{'movie_count': 84,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'History',
+ 'median_runtime': 105.0}
+{'movie_count': 319,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Crime',
+ 'median_runtime': 103.0}
+{'movie_count': 75,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'War',
+ 'median_runtime': 100.0}
+{'movie_count': 3186,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Drama',
+ 'median_runtime': 100.0}
+{'movie_count': 1048,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 99.0}
+{'movie_count': 121,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Music',
+ 'median_runtime': 98.0}
+{'movie_count': 392,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Romance',
+ 'median_runtime': 98.0}
+{'movie_count': 28,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Western',
+ 'median_runtime': 98.0}
+{'movie_count': 304,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Adventure',
+ 'median_runtime': 97.0}
+{'movie_count': 28,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Foreign',
+ 'median_runtime': 96.0}
+{'movie_count': 157,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Mystery',
+ 'median_runtime': 95.0}
+{'movie_count': 778,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Thriller',
+ 'median_runtime': 94.0}
+{'movie_count': 143,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Fantasy',
+ 'median_runtime': 92.0}
+{'movie_count': 2323,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Comedy',
+ 'median_runtime': 91.0}
+{'movie_count': 185,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Science Fiction',
+ 'median_runtime': 91.0}
+{'movie_count': 784,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Horror',
+ 'median_runtime': 90.0}
+{'movie_count': 203,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Family',
+ 'median_runtime': 88.0}
+{'movie_count': 1627,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Documentary',
+ 'median_runtime': 88.0}
+{'movie_count': 149,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'TV Movie',
+ 'median_runtime': 86.0}
+{'movie_count': 327,
+ 'decade': 2010.0,
+ 'decade_label': '2010s',
+ 'primary_genre': 'Animation',
+ 'median_runtime': 80.0}
+{'movie_count': 1,
+ 'decade': 2020.0,
+ 'decade_label': '2020s',
+ 'primary_genre': 'Action',
+ 'median_runtime': 0.0}
