@@ -20,7 +20,7 @@ class QMini:
     def close(self):
         self.connection.close_connection()
 
-class TaskProgram(QMini):
+class TaskProgram(Q):
     def task1(self):
         pipeline = [
             {"$unwind": "$crew"},
@@ -81,7 +81,7 @@ class TaskProgram(QMini):
 
         print(f"\nResults saved to {output_file}")
 
-    def task2_top_actors(self):
+    def task2(self):
         pipeline = [
             {"$match": {
                 "cast": {"$exists": True, "$ne": []},
@@ -113,6 +113,38 @@ class TaskProgram(QMini):
             }}
         ]
         self.print_task(list(self.db.movies.aggregate(pipeline)),2)
+
+    def task3(self):
+        pipeline = [
+            {"$project": {"cast": 1, "genres": 1}},
+            {"$match": {"cast": {"$type": "array"}, "genres": {"$type": "array"}}},
+            {"$unwind": "$cast"},
+            {"$match": {"cast.person_id": {"$type": "number"}}},
+            {"$unwind": "$genres"},
+            {
+                "$group": {
+                    "_id": {"pid": "$cast.person_id", "name": "$cast.name"},
+                    "movies": {"$addToSet": "$_id"},
+                    "genres": {"$addToSet": "$genres"}
+                }
+            },
+            {"$addFields": {
+                "movie_count": {"$size": "$movies"},
+                "genre_breadth": {"$size": "$genres"}
+            }},
+            {"$match": {"movie_count": {"$gte": 10}}},
+            {"$project": {
+                "_id": 0,
+                "actor_id": "$_id.pid",
+                "actor": "$_id.name",
+                "movie_count": 1,
+                "genre_breadth": 1,
+                "example_genres": {"$slice": [{"$sortArray": {"input": "$genres", "sortBy": 1}}, 5]}
+            }},
+            {"$sort": {"genre_breadth": -1, "movie_count": -1, "actor": 1}},
+            {"$limit": 10}
+        ]
+        return list(self.db["movies"].aggregate(pipeline))
 
     def task4(self):
         pipeline = [
@@ -177,50 +209,31 @@ class TaskProgram(QMini):
         ]
         self.print_task(list(self.db.movies.aggregate(pipeline)), 5)
     
-    def task3(self):
-        pipeline = [
-            {"$project": {"cast": 1, "genres": 1}},
-            {"$match": {"cast": {"$type": "array"}, "genres": {"$type": "array"}}},
-            {"$unwind": "$cast"},
-            {"$match": {"cast.person_id": {"$type": "number"}}},
-            {"$unwind": "$genres"},
-            {
-                "$group": {
-                    "_id": {"pid": "$cast.person_id", "name": "$cast.name"},
-                    "movies": {"$addToSet": "$_id"},
-                    "genres": {"$addToSet": "$genres"}
-                }
-            },
-            {"$addFields": {
-                "movie_count": {"$size": "$movies"},
-                "genre_breadth": {"$size": "$genres"}
-            }},
-            {"$match": {"movie_count": {"$gte": 10}}},
-            {"$project": {
-                "_id": 0,
-                "actor_id": "$_id.pid",
-                "actor": "$_id.name",
-                "movie_count": 1,
-                "genre_breadth": 1,
-                "example_genres": {"$slice": [{"$sortArray": {"input": "$genres", "sortBy": 1}}, 5]}
-            }},
-            {"$sort": {"genre_breadth": -1, "movie_count": -1, "actor": 1}},
-            {"$limit": 10}
-        ]
-        return list(self.db["movies"].aggregate(pipeline))
-    
     def task6(self):
         pipeline = [
             {"$project": {"cast": 1, "release_date": 1}},
+            {"$match": {"release_date": {"$type": "date"}, "cast": {"$type": "array"}}},
             {"$unwind": "$cast"},
-            {"$match": {"cast.order": {"$lte": 4}, "cast.gender": {"$in": [1, 2]}}},
+
+            # add gender from people
+            {"$lookup": {
+                "from": "people",
+                "localField": "cast.person_id",
+                "foreignField": "_id",
+                "as": "p"
+            }},
+            {"$unwind": "$p"},
+
+            # top-5 billed with known gender (TMDB: 1=female, 2=male)
+            {"$match": {"cast.order": {"$lte": 4}, "p.gender": {"$in": [1, 2]}}},
+
             {"$group": {
                 "_id": {
                     "movie": "$_id",
                     "decade": {"$multiply": [{"$floor": {"$divide": [{"$year": "$release_date"}, 10]}}, 10]}
                 },
                 "total_top5_known_cast": {"$sum": 1},
-                "female_top5": {"$sum": {"$cond": [{"$eq": ["$cast.gender", 1]}, 1, 0]}}
+                "female_top5": {"$sum": {"$cond": [{"$eq": ["$p.gender", 1]}, 1, 0]}}
             }},
             {"$addFields": {
                 "female_ratio": {
@@ -231,7 +244,6 @@ class TaskProgram(QMini):
                     ]
                 }
             }},
-            {"$match": {"female_ratio": {"$ne": None}}},
             {"$group": {
                 "_id": "$_id.decade",
                 "avg_female_ratio": {"$avg": "$female_ratio"},
@@ -245,7 +257,98 @@ class TaskProgram(QMini):
             }},
             {"$sort": {"avg_female_ratio": -1, "decade": 1}}
         ]
-        return list(self.db["movies"].aggregate(pipeline))
+        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
+    
+    def task8(self):
+        pipeline = [
+            {"$match": {
+                "vote_count": {"$gte": 100},
+                "vote_average": {"$type": "number"},
+                "cast": {"$type": "array"},
+                "crew": {"$type": "array"}
+            }},
+            {"$project": {
+                "vote_average": 1,
+                "revenue": 1,
+                "cast": {"$ifNull": ["$cast", []]},
+                "directors": {
+                    "$filter": {
+                        "input": {"$ifNull": ["$crew", []]},
+                        "as": "c",
+                        "cond": {"$eq": ["$$c.job", "Director"]}
+                    }
+                }
+            }},
+            {"$unwind": "$directors"},
+            {"$unwind": "$cast"},
+            {"$match": {
+                "directors.person_id": {"$type": "number"},
+                "cast.person_id": {"$type": "number"},
+                "$expr": {"$ne": ["$directors.person_id", "$cast.person_id"]}
+            }},
+            {"$group": {
+                "_id": {
+                    "movie": "$_id",
+                    "dir_id": "$directors.person_id",
+                    "actor_id": "$cast.person_id",
+                    "dir_name": "$directors.name",
+                    "actor_name": "$cast.name"
+                },
+                "vote_avg_movie": {"$first": "$vote_average"},
+                "rev_movie": {"$first": "$revenue"}
+            }},
+            {"$group": {
+                "_id": {"dir_id": "$_id.dir_id", "actor_id": "$_id.actor_id"},
+                "director": {"$first": "$_id.dir_name"},
+                "actor": {"$first": "$_id.actor_name"},
+                "films_count": {"$sum": 1},
+                "mean_vote_average": {"$avg": "$vote_avg_movie"},
+                "mean_revenue": {"$avg": "$rev_movie"}
+            }},
+            {"$match": {"films_count": {"$gte": 3}}},
+            {"$project": {
+                "_id": 0,
+                "director_id": "$_id.dir_id",
+                "director": 1,
+                "actor_id": "$_id.actor_id",
+                "actor": 1,
+                "films_count": 1,
+                "mean_vote_average": {"$round": ["$mean_vote_average", 3]},
+                "mean_revenue": {"$round": ["$mean_revenue", 0]}
+            }},
+            {"$sort": {"mean_vote_average": -1, "films_count": -1, "director": 1, "actor": 1}},
+            {"$limit": 20}
+        ]
+        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
+    
+    def task9(self):
+        pipeline = [
+            {"$match": {
+                "original_language": {"$ne": "en"},
+                "$or": [
+                    {"production_countries": {"$elemMatch": {"$in": ["US", "USA", "United States"]}}},
+                    {"production_companies": {"$elemMatch": {"$regex": r"^United States$", "$options": "i"}}}
+                ]
+            }},
+            {"$project": {
+                "original_language": 1,
+                "title": 1
+            }},
+            {"$group": {
+                "_id": "$original_language",
+                "count": {"$sum": 1},
+                "example_title": {"$first": "$title"}
+            }},
+            {"$project": {
+                "_id": 0,
+                "language": "$_id",
+                "count": 1,
+                "example_title": 1
+            }},
+            {"$sort": {"count": -1, "language": 1}},
+            {"$limit": 10}
+        ]
+        return list(self.db["movies"].aggregate(pipeline, allowDiskUse=True))
 
     def ensure_indexes(self):
         self.db.ratings.create_index([("userId", ASCENDING), ("movieId", ASCENDING)])
@@ -359,8 +462,6 @@ class TaskProgram(QMini):
                 "ratings_count": 1,
                 "genre_count": 1,
                 "variance_pop": 1,
-                # if your server lacks $sortArray, replace with: {"$slice": ["$genres_all", 5]}
-                "example_genres": {"$slice": [{"$sortArray": {"input": "$genres_all", "sortBy": 1}}, 5]}
             }},
             {"$facet": {
                 "most_genre_diverse": [
@@ -375,13 +476,30 @@ class TaskProgram(QMini):
         ]
         return list(self.db["ratings"].aggregate(pipeline, allowDiskUse=True))[0]
     
-    def print_task10(self, result):
-        print("\nMost genre diverse (top 10):")
-        for doc in result.get("most_genre_diverse", []):
-            pprint(doc, sort_dicts=False, width=100)
-        print("\nHighest variance (top 10):")
-        for doc in result.get("highest_variance", []):
-            pprint(doc, sort_dicts=False, width=100)
+    def print_task10(self, result, filepath="log/task10_results.txt"):
+        os.makedirs(os.path.dirname(filepath), exist_ok=True)
+        most = result.get("most_genre_diverse", [])
+        var  = result.get("highest_variance", [])
+        with open(filepath, "w", encoding="utf-8") as f:
+            print("\nMost genre diverse (top 10):")
+            f.write("Most genre diverse (top 10):\n")
+            if not most:
+                print("No results.")
+                f.write("No results.\n")
+            for doc in most:
+                pprint(doc, sort_dicts=False, width=100)
+                pprint(doc, sort_dicts=False, width=100, stream=f)
+
+            print("\nHighest variance (top 10):")
+            f.write("\nHighest variance (top 10):\n")
+            if not var:
+                print("No results.")
+                f.write("No results.\n")
+            for doc in var:
+                pprint(doc, sort_dicts=False, width=100)
+                pprint(doc, sort_dicts=False, width=100, stream=f)
+
+        print(f"\nResults saved to {filepath}")
         
 if __name__ == "__main__":
     task = TaskProgram()
