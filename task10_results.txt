@@ -1,0 +1,103 @@
+Most genre diverse (top 10):
+{'ratings_count': 18276,
+ 'variance_pop': 0.6439188993816796,
+ 'genre_count': 20,
+ 'userId': 45811
+}
+{'ratings_count': 9279,
+ 'variance_pop': 0.3138205156499648,
+ 'genre_count': 20,
+ 'userId': 8659
+}
+{'ratings_count': 7638,
+ 'variance_pop': 1.1211287289863714,
+ 'genre_count': 20,
+ 'userId': 270123
+}
+{'ratings_count': 7515,
+ 'variance_pop': 0.9000173261815234,
+ 'genre_count': 20,
+ 'userId': 179792
+}
+{'ratings_count': 7410,
+ 'variance_pop': 0.27942426071927406,
+ 'genre_count': 20,
+ 'userId': 228291
+}
+{'ratings_count': 6320,
+ 'variance_pop': 1.6133256827331341,
+ 'genre_count': 20,
+ 'userId': 243443
+}
+{'ratings_count': 6094,
+ 'variance_pop': 0.8486149237377152,
+ 'genre_count': 20,
+ 'userId': 98415
+}
+{'ratings_count': 6024,
+ 'variance_pop': 1.0251878649082233,
+ 'genre_count': 20,
+ 'userId': 229879
+}
+{'ratings_count': 5814,
+ 'variance_pop': 2.0715013722614657,
+ 'genre_count': 20,
+ 'userId': 98787
+}
+{'ratings_count': 5701,
+ 'variance_pop': 0.5333776842419806,
+ 'genre_count': 20,
+ 'userId': 172224
+}
+
+Highest variance (top 10):
+{'ratings_count': 34,
+ 'variance_pop': 5.0625,
+ 'genre_count': 14,
+ 'userId': 167241
+}
+{'ratings_count': 26,
+ 'variance_pop': 5.0625,
+ 'genre_count': 14,
+ 'userId': 185889
+}
+{'ratings_count': 20,
+ 'variance_pop': 5.0625,
+ 'genre_count': 13,
+ 'userId': 18703
+}
+{'ratings_count': 20,
+ 'variance_pop': 5.0625,
+ 'genre_count': 14,
+ 'userId': 57842
+}
+{'ratings_count': 20,
+ 'variance_pop': 5.0625,
+ 'genre_count': 15,
+ 'userId': 83102
+}
+{'ratings_count': 20,
+ 'variance_pop': 5.0625,
+ 'genre_count': 15,
+ 'userId': 153882
+}
+{'ratings_count': 83,
+ 'variance_pop': 5.06176513282044,
+ 'genre_count': 14,
+ 'userId': 15395
+}
+{'ratings_count': 27,
+ 'variance_pop': 5.0555555555555545,
+ 'genre_count': 13,
+ 'userId': 71009
+}
+{'ratings_count': 21,
+ 'variance_pop': 5.051020408163264,
+ 'genre_count': 13,
+ 'userId': 179759
+}
+{'ratings_count': 120,
+ 'variance_pop': 5.039999999999998,
+ 'genre_count': 19,
+ 'userId': 221535
+}
