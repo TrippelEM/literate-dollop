@@ -512,5 +512,7 @@ if __name__ == "__main__":
         task.task7()
         task.task8()
         task.task9()
+        #Takes a long time, uncomment if you want to test task 10 query
+        #task.task10()
     finally:
         task.close()
